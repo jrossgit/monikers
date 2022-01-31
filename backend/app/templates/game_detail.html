@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block body %}
+
+<h2>Cards for game {{ game.id }}</h2>
+
+{% for card in cards %}
+<div class="card">
+    <p><strong>{{ card.title_text }}</strong></p>
+    <p>{{ card.help_text }}</p>
+</div>
+{% endfor %}
+
+<div class="card card-create">
+    <p><strong>+</strong></p>
+</div>
+
+{% endblock %}

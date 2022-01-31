@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block body %}
+
+<h2>Games</h2>
+
+<table>
+    <tr><th>Game ID</th></tr>
+    {% for game in games %}
+    <tr id="game_{{ game.id }}">
+        <td><a href="{% url 'game_detail_view' game_id=game.id %}">{{ game.id }}</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

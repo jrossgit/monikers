@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <body>
+        <h1 class="header">Monikers</h1>
+        <div class="content">
+        {% block body %}{% endblock %}
+        </div>
+    </body>
+</html>
