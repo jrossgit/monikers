@@ -1,0 +1,12 @@
+*.pyc
+.idea
+.vscode
+__pycache__
+db.sqlite3
+.DS_Store
+venv_imagerank2
+data
+
+# Settings
+.env.local
+.env.production
