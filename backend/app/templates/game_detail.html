@@ -2,17 +2,29 @@
 
 {% block body %}
 
-<h2>Cards for game {{ game.id }}</h2>
+<h2>Cards for game {{ game.name }}</h2>
 
 {% for card in cards %}
-<div class="card">
+<div class="card" id="card_{{ card.id }}">
     <p><strong>{{ card.title_text }}</strong></p>
     <p>{{ card.help_text }}</p>
 </div>
 {% endfor %}
 
-<div class="card card-create">
+<div
+    class="card card-create"
+    hx-post="/htmx/new_card"
+    hx-trigger="click"
+    hx-target="#parent-div"
+    hx-swap="innerHTML">
     <p><strong>+</strong></p>
 </div>
 
 {% endblock %}
+
+<!-- <button hx-post="/clicked"
+hx-trigger="click"
+hx-target="#parent-div"
+hx-swap="outerHTML">
+Click Me!
+</button> -->

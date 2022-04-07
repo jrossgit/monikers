@@ -1,10 +1,13 @@
+import uuid
+
 from django.db import models
 
 
 # Create your models here.
 class Game(models.Model):
 
-    id = models.fields.UUIDField(verbose_name="Game UUID", primary_key=True)
+    id = models.fields.UUIDField(verbose_name="Game UUID", primary_key=True, default=uuid.uuid4)
+    name = models.fields.CharField(verbose_name="Game name", max_length=200, default="")
 
 
 class Card(models.Model):

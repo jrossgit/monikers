@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block body %}
+
+<form action="{% url 'game_create_view' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit">
+</form>
+
+{% endblock %}

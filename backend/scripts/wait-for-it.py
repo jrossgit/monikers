@@ -63,19 +63,11 @@ if __name__ == "__main__":
 
         LOGGER.info("Checking database connection")
         check_connection(
-            host=os.environ["DB_HOST"],
-            port=os.environ.get("DB_PORT", "5432"),
+            host=os.environ["SQL_HOST"],
+            port=os.environ.get("SQL_PORT", "5432"),
             max_conn_retries=MAX_DB_CONN_RETRIES
         )
         LOGGER.info("Database is ready to be connected")
-
-        LOGGER.info("Checking rabbitmq connection")
-        check_connection(
-            host=os.environ["RABBITMQ_HOST"],
-            port=os.environ.get("RABBITMQ_PORT", "5672"),
-            max_conn_retries=MAX_RABBIT_CONN_RETRIES,
-        )
-        LOGGER.info("Rabbitmq is ready to be connected")
         exit_code = 0
     except ConnectionError as ex:
         LOGGER.error(ex)

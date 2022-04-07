@@ -7,10 +7,11 @@
 <table>
     <tr><th>Game ID</th></tr>
     {% for game in games %}
-    <tr id="game_{{ game.id }}">
-        <td><a href="{% url 'game_detail_view' game_id=game.id %}">{{ game.id }}</a></td>
+    <tr id="game_{{ game.name }}">
+        <td><a href="{% url 'game_detail_view' game_id=game.id %}">{{ game.name }}</a></td>
     </tr>
     {% endfor %}
 </table>
+<a href="{% url 'game_create_view' %}">New</a>
 
 {% endblock %}
