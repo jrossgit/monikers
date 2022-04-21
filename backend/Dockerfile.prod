@@ -38,7 +38,7 @@ RUN poetry config virtualenvs.create false \
 #########
 
 # pull official base image
-FROM ubuntu:focal
+FROM ubuntu:focal as final
 
 # create directory for the app user
 RUN mkdir -p /home/app
@@ -54,7 +54,7 @@ WORKDIR $APP_HOME
 
 # install dependencies
 COPY --from=builder /usr/local/lib/python3.8/ /usr/local/lib/python3.8
-# COPY --from=build /usr/local/bin/uwsgi /usr/local/bin/
+COPY --from=builder /usr/local/bin/uwsgi /usr/local/bin/
 COPY --from=builder /app $APP_HOME
 COPY --from=builder /lib/x86_64-linux-gnu/ /lib/x86_64-linux-gnu
 

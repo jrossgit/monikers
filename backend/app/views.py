@@ -47,5 +47,5 @@ def new_card_htmx_view(request):
 
     return render(
         request,
-        "htmx/card_new_form"
+        "htmx/card_new_form.html"
     )

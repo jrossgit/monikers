@@ -9,13 +9,16 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+import logging
 import os
+
 
 from dotenv import load_dotenv
 
 
 load_dotenv()
+
+LOGGER = logging.getLogger(__name__)
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -90,6 +93,7 @@ DATABASES = {
         "PORT": os.environ.get("SQL_PORT", "5432"),
     }
 }
+LOGGER.info(f"Initialising with database data {DATABASES}")
 
 
 # Password validation
